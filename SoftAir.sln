@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoftAir.Web.UI", "SoftAir.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftAir.Data", "SoftAir.Data\SoftAir.Data.csproj", "{A5C67A4A-3D34-41B2-AE48-37942144208B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftAir.Services", "SoftAir.Services\SoftAir.Services.csproj", "{761F914E-51BA-4A0E-BA8A-B4FA2F4870BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A5C67A4A-3D34-41B2-AE48-37942144208B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5C67A4A-3D34-41B2-AE48-37942144208B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5C67A4A-3D34-41B2-AE48-37942144208B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{761F914E-51BA-4A0E-BA8A-B4FA2F4870BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{761F914E-51BA-4A0E-BA8A-B4FA2F4870BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{761F914E-51BA-4A0E-BA8A-B4FA2F4870BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{761F914E-51BA-4A0E-BA8A-B4FA2F4870BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
