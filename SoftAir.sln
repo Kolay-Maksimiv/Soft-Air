@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftAir.Services", "SoftAir
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftAir.Data", "SoftAir.Data\SoftAir.Data.csproj", "{CE88DB6E-84B6-4301-9250-65B97215B339}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoftAir.Web.Api", "SoftAir.Web.Api\SoftAir.Web.Api.csproj", "{46EDCE58-0E07-4D79-A579-C7568EFB5D38}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{CE88DB6E-84B6-4301-9250-65B97215B339}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE88DB6E-84B6-4301-9250-65B97215B339}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE88DB6E-84B6-4301-9250-65B97215B339}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46EDCE58-0E07-4D79-A579-C7568EFB5D38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46EDCE58-0E07-4D79-A579-C7568EFB5D38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46EDCE58-0E07-4D79-A579-C7568EFB5D38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46EDCE58-0E07-4D79-A579-C7568EFB5D38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
