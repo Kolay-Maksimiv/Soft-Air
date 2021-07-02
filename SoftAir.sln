@@ -5,11 +5,17 @@ VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoftAir.Web.UI", "SoftAir.Web.UI\SoftAir.Web.UI.csproj", "{5F6164A1-5CD0-49C4-9969-5529E306F07C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftAir.Services", "SoftAir.Services\SoftAir.Services.csproj", "{5EFA2F65-A5EA-442C-BD3B-E5D2E8B6EE05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoftAir.Services", "SoftAir.Services\SoftAir.Services.csproj", "{5EFA2F65-A5EA-442C-BD3B-E5D2E8B6EE05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftAir.Data", "SoftAir.Data\SoftAir.Data.csproj", "{CE88DB6E-84B6-4301-9250-65B97215B339}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoftAir.Data", "SoftAir.Data\SoftAir.Data.csproj", "{CE88DB6E-84B6-4301-9250-65B97215B339}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoftAir.Web.Api", "SoftAir.Web.Api\SoftAir.Web.Api.csproj", "{46EDCE58-0E07-4D79-A579-C7568EFB5D38}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{9632ED6F-FF2E-4CDA-A82A-ABBC50AB5D78}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{B55E1106-E117-41FC-A921-AADFAA306973}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Webjob", "Webjob", "{63E3B6D2-687E-4B4C-9B86-459A160AA99F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +42,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5F6164A1-5CD0-49C4-9969-5529E306F07C} = {B55E1106-E117-41FC-A921-AADFAA306973}
+		{5EFA2F65-A5EA-442C-BD3B-E5D2E8B6EE05} = {9632ED6F-FF2E-4CDA-A82A-ABBC50AB5D78}
+		{CE88DB6E-84B6-4301-9250-65B97215B339} = {9632ED6F-FF2E-4CDA-A82A-ABBC50AB5D78}
+		{46EDCE58-0E07-4D79-A579-C7568EFB5D38} = {B55E1106-E117-41FC-A921-AADFAA306973}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6B043FCF-57B3-4513-B19E-CC857C5A1FC3}
