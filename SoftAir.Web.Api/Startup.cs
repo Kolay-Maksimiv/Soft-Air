@@ -1,10 +1,12 @@
 using AutoMapper;
+using IdentityServer4.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using SoftAir.Data;
 using SoftAir.Data.Extensions;
@@ -25,6 +27,7 @@ namespace SoftAir.Web.Api
     /// </summary>
     public class Startup
     {
+        private readonly string CorsPolicyName = "SoftAirCorsPolicy";
         /// <summary>
         /// Configuration startup project
         /// </summary>
@@ -90,6 +93,29 @@ namespace SoftAir.Web.Api
                 //Display or log the error based on your application.
             }
 
+            var allowedOrigins = new string[] {
+                "http://localhost:51929"
+            };
+
+            services.AddSingleton<ICorsPolicyService>((container) =>
+            {
+                var logger = container.GetRequiredService<ILogger<DefaultCorsPolicyService>>();
+                return new DefaultCorsPolicyService(logger)
+                {
+                    AllowedOrigins = allowedOrigins
+                };
+            });
+            services.AddCors(options =>
+            {
+                options.AddPolicy(CorsPolicyName, builder =>
+                {
+                    builder.WithOrigins(allowedOrigins)
+                           .AllowAnyHeader()
+                           .AllowAnyMethod()
+                           .AllowCredentials();
+                });
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SoftAir.Web.Api", Version = "v1" });
@@ -108,6 +134,8 @@ namespace SoftAir.Web.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(CorsPolicyName);
 
             app.UseAuthorization();
 

@@ -14,14 +14,10 @@ namespace SoftAir.Web.Api.Controllers.Aircraft
             _aircraftService = aircraftService;
         }
 
-        /// <summary>
-        /// The get API items based on provided JSON object.
-        /// </summary>
-        /// <returns>The response is 200 (Status - Ok).</returns>
         [HttpGet]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> GetCompanyAsync()
+        public async Task<IActionResult> GetAircraftAsync()
         {
             var result = await _aircraftService.GetAircraftAsync();
 
