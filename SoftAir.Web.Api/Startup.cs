@@ -34,7 +34,7 @@ namespace SoftAir.Web.Api
         public IConfiguration Configuration { get; }
 
         /// <summary>
-        /// Inject project configuration
+        /// Inject project configurationD:\Queally Web\Queally.Web.Ui\src\app\shared\http-client\http-client.service.ts
         /// </summary>
         /// <param name="configuration"></param>
         public Startup(IConfiguration configuration)

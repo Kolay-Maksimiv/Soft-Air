@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseUrl: 'https://localhost:44307', // Change this to the address of your backend API if different from frontend address
+  apiUrl: 'http://localhost:44307/api', // For frontent API HTTP
+  webUrl: 'http://localhost:44308',
 };
 
 /*
