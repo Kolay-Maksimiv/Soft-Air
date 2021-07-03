@@ -1,1 +1,13 @@
-<p>aircraft works!</p>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+          <th scope="col" style="text-align: center;">Aircraft</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let aircraft of _aircrafts" >
+          <td style="text-align: center;">{{ aircraft?.name}}</td>
+        </tr>
+      </tbody>    
+  </table>

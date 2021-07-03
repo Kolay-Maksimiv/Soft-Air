@@ -94,7 +94,7 @@ namespace SoftAir.Web.Api
             }
 
             var allowedOrigins = new string[] {
-                "http://localhost:51929"
+                "http://localhost:44308"
             };
 
             services.AddSingleton<ICorsPolicyService>((container) =>

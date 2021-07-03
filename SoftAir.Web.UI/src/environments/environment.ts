@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   baseUrl: 'https://localhost:44307', // Change this to the address of your backend API if different from frontend address
-  apiUrl: 'http://localhost:44307/api', // For frontent API HTTP
+  apiUrl: 'https://localhost:44307/api', // For frontent API HTTP
   webUrl: 'http://localhost:44308',
 };
 
