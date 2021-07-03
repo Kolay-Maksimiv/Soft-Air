@@ -7,6 +7,5 @@ namespace SoftAir.Services.Interfaces
     {
         List<AircraftDto> Get();
         AircraftDto GetById(int id);
-        //IEnumerable<Aircraft> GetAircraftAsync();
     }
 }

@@ -340,3 +340,4 @@ ASALocalRun/
 healthchecksdb
 /.vscode
 /SoftAir.Web.UI/Properties/launchSettings.json
+/SoftAir.Web.UI/out-tsc/e2e
