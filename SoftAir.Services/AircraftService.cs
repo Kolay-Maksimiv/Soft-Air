@@ -4,6 +4,7 @@ using SoftAir.Data.Repositories.Interfaces;
 using SoftAir.Services.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SoftAir.Services
 {
@@ -18,7 +19,7 @@ namespace SoftAir.Services
             _mapper = mapper;
         }
 
-        public List<AircraftDto> Get()
+        public async Task<List<AircraftDto>> GetAircraftAsync()
         {
             try
             {
@@ -33,7 +34,7 @@ namespace SoftAir.Services
             }
         }
 
-        public AircraftDto GetById(int id)
+        public AircraftDto GetAircraftById(int id)
         {
             try
             {

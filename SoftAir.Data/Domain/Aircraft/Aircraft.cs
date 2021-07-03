@@ -2,7 +2,7 @@
 
 namespace SoftAir.Data.Domain.Aircraft
 {
-    public class Aircraft: Entity, IEntity<int>
+    public class Aircraft : Entity, IEntity<int>
     {
         /// <summary>
         /// Name Aircraft
