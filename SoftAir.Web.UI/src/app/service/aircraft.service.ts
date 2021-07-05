@@ -13,7 +13,7 @@ export class AircraftService {
   }
 
   getAircraft() {
-    return this.http.get<AircraftModel[]>(HttpClientService.AIRCRAFT_CONTROLLER);
+    return this.http.get<AircraftModel[]>(HttpClientService.GET_AIRCRAFT_CONTROLLER);
   }
 
 }
