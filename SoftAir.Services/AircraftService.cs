@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using SoftAir.Data.Dto;
+using SoftAir.Data.Dto.Airctaft;
 using SoftAir.Data.Repositories.Interfaces;
 using SoftAir.Services.Interfaces;
 using System;
@@ -19,14 +19,14 @@ namespace SoftAir.Services
             _mapper = mapper;
         }
 
-        public async Task<List<AircraftDto>> GetAircraftAsync()
+        public async Task<List<AircraftListDto>> GetAllAircraftAsync()
         {
             try
             {
                 var aircrafts = _aircraftRepository.GetAircraftList();
-                var aircraftDto = _mapper.Map<List<AircraftDto>>(aircrafts);
+                var aircraftListDto = _mapper.Map<List<AircraftListDto>>(aircrafts);
 
-                return aircraftDto;
+                return aircraftListDto;
             }
             catch (Exception ex)
             {

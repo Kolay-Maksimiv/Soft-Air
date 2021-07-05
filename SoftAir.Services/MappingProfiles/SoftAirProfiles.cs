@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using SoftAir.Data.Domain.Aircraft;
-using SoftAir.Data.Dto;
+using SoftAir.Data.Dto.Airctaft;
 
 namespace SoftAir.Services.MappingProfiles
 {

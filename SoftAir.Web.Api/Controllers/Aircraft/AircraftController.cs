@@ -19,7 +19,7 @@ namespace SoftAir.Web.Api.Controllers.Aircraft
         [ProducesResponseType(404)]
         public async Task<IActionResult> GetAircraftAsync()
         {
-            var result = await _aircraftService.GetAircraftAsync();
+            var result = await _aircraftService.GetAllAircraftAsync();
 
             return Ok(result);
         }

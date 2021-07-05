@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using SoftAir.Data.Dto.Airctaft;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using SoftAir.Data.Dto;
 
 namespace SoftAir.Services.Interfaces
 {
     public interface IAircraftService
     {
-        Task<List<AircraftDto>> GetAircraftAsync();
+        Task<List<AircraftListDto>> GetAllAircraftAsync();
         AircraftDto GetAircraftById(int id);
     }
 }
