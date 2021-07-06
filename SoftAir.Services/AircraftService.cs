@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
-using SoftAir.Data.Dto;
+using Microsoft.AspNetCore.Mvc;
+using SoftAir.Data.Domain.Aircraft;
+using SoftAir.Data.Dto.Airctaft;
 using SoftAir.Data.Repositories.Interfaces;
 using SoftAir.Services.Interfaces;
 using System;
@@ -19,19 +21,22 @@ namespace SoftAir.Services
             _mapper = mapper;
         }
 
-        public async Task<List<AircraftDto>> GetAircraftAsync()
+        public List<AircraftListDto> GetAllAircraft()
         {
-            try
-            {
-                var aircrafts = _aircraftRepository.GetAircraftList();
-                var aircraftDto = _mapper.Map<List<AircraftDto>>(aircrafts);
+            var aircraftListDto = new List<AircraftListDto>();
+            var aircraft = _aircraftRepository.GetAircraftList();
 
-                return aircraftDto;
-            }
-            catch (Exception ex)
+            foreach (var aircraftItem in aircraft)
             {
-                throw ex;
+                var aircraftDto = new AircraftListDto
+                {
+                    Id = aircraftItem.Id,
+                    Name = aircraftItem.Name
+                };
+                aircraftListDto.Add(aircraftDto);
             }
+
+            return aircraftListDto;
         }
 
         public AircraftDto GetAircraftById(int id)
@@ -43,11 +48,30 @@ namespace SoftAir.Services
 
                 return aircraftDto;
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
 
+        public void AddAircarft(Aircraft aircraft)
+        {
+            if (aircraft == null)
+                throw new ArgumentNullException(nameof(aircraft));
+            _aircraftRepository.AddAircarft(aircraft);
+
+        }
+
+        public void UpdateAircraft(Aircraft aircraft)
+        {
+            if (aircraft == null)
+                throw new ArgumentNullException(nameof(aircraft));
+            _aircraftRepository.EditAircraft(aircraft);
+        }
+
+        public void DeleteAircraft(int id)
+        {
+            _aircraftRepository.DeleteAircraft(id);
+        }
     }
 }
