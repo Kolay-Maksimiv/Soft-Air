@@ -61,6 +61,12 @@ namespace SoftAir.Services
             _aircraftRepository.AddAircarft(aircraft);
 
         }
-        
+
+        public void UpdateAircraft(Aircraft aircraft)
+        {
+            if (aircraft == null)
+                throw new ArgumentNullException(nameof(aircraft));
+            _aircraftRepository.EditAircraft(aircraft);
+        }
     }
 }

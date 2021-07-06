@@ -35,6 +35,7 @@ namespace SoftAir.Data.Repositories
         public void EditAircraft(Aircraft aircraft)
         {
             Context.Entry(aircraft).State = EntityState.Modified;
+            Context.SaveChanges();
         }
         public void DeleteAircraft(int id)
         {

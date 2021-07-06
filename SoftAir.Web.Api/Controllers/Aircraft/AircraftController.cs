@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SoftAir.Data.Domain.Aircraft;
+using SoftAir.Data.Dto.Airctaft;
 using SoftAir.Services.Interfaces;
 using SoftAir.Web.Api.ViewModels;
+using System;
 using System.Threading.Tasks;
 
 namespace SoftAir.Web.Api.Controllers
@@ -46,6 +48,31 @@ namespace SoftAir.Web.Api.Controllers
                 return Ok("Aircraft add");
             }
             return BadRequest();
+        }
+
+        [HttpPut("edit-aircraft")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        public IActionResult EditAircraft([FromBody] AircraftViewModel model)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest();
+                var aircraft = new Aircraft
+                {
+                    Id = model.Id,
+                    Name = model.Name
+                };
+
+                _aircraftService.UpdateAircraft(aircraft);
+
+                return Ok("Aircraft edit");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

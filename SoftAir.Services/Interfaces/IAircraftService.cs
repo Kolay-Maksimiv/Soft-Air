@@ -10,5 +10,7 @@ namespace SoftAir.Services.Interfaces
     {
         Task<List<AircraftListDto>> GetAllAircraftAsync();
         void AddAircarft(Aircraft aircraft);
+
+        void UpdateAircraft(Aircraft aircraft);
     }
 }
