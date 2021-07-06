@@ -8,5 +8,9 @@ namespace SoftAir.Data.Repositories.Interfaces
     {
         IEnumerable<Aircraft> GetAircraftList();
         Aircraft GetAircraft(int id);
+        void AddAircarft(Aircraft aircraft);
+        void EditAircraft(Aircraft aircraft);
+        void DeleteAircraft(int id);
+
     }
 }

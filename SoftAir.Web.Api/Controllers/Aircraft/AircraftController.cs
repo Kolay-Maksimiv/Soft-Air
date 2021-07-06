@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using SoftAir.Data.Domain.Aircraft;
 using SoftAir.Services.Interfaces;
 using SoftAir.Web.Api.ViewModels;
@@ -10,10 +11,12 @@ namespace SoftAir.Web.Api.Controllers
     public class AircraftController : ControllerBase
     {
         private readonly IAircraftService _aircraftService;
+        private IMapper _mapper;
 
-        public AircraftController(IAircraftService aircraftService) : base()
+        public AircraftController(IAircraftService aircraftService, IMapper mapper) : base()
         {
             _aircraftService = aircraftService;
+            _mapper = mapper;
         }
 
         [HttpGet("get-aircraft")]
@@ -29,11 +32,18 @@ namespace SoftAir.Web.Api.Controllers
         [HttpPost("add-aircraft")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> AddAircraftAsync(AircraftViewModel model)
+        public IActionResult AddAircraft([FromBody] AircraftViewModel model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
+                var aircraft = new Aircraft
+                {
+                    Name = model.Name
+                };
 
+                _aircraftService.AddAircarft(aircraft);
+
+                return Ok("Aircraft add");
             }
             return BadRequest();
         }

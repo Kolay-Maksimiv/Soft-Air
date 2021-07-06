@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using SoftAir.Data.Domain.Aircraft;
 using SoftAir.Data.Dto.Airctaft;
 using SoftAir.Data.Repositories.Interfaces;
 using SoftAir.Services.Interfaces;
@@ -21,17 +23,20 @@ namespace SoftAir.Services
 
         public async Task<List<AircraftListDto>> GetAllAircraftAsync()
         {
-            try
-            {
-                var aircrafts = _aircraftRepository.GetAircraftList();
-                var aircraftListDto = _mapper.Map<List<AircraftListDto>>(aircrafts);
+            var aircraftListDto = new List<AircraftListDto>();
+            var aircraft = _aircraftRepository.GetAircraftList();
 
-                return aircraftListDto;
-            }
-            catch (Exception ex)
+            foreach(var aircraftItem in aircraft)
             {
-                throw ex;
+                var aircraftDto = new AircraftListDto
+                {
+                    Id = aircraftItem.Id,
+                    Name = aircraftItem.Name
+                };
+                aircraftListDto.Add(aircraftDto);
             }
+
+            return aircraftListDto;
         }
 
         public AircraftDto GetAircraftById(int id)
@@ -49,5 +54,13 @@ namespace SoftAir.Services
             }
         }
 
+        public void AddAircarft(Aircraft aircraft)
+        {
+            if (aircraft == null)
+                throw new ArgumentNullException(nameof(aircraft));
+            _aircraftRepository.AddAircarft(aircraft);
+
+        }
+        
     }
 }

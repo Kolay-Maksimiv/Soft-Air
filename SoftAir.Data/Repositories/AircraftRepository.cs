@@ -1,6 +1,8 @@
-﻿using SoftAir.Data.Domain.Aircraft;
+﻿using Microsoft.EntityFrameworkCore;
+using SoftAir.Data.Domain.Aircraft;
 using SoftAir.Data.Repositories.Abstract;
 using SoftAir.Data.Repositories.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -24,6 +26,21 @@ namespace SoftAir.Data.Repositories
         {
             return Context.Aircraft.FirstOrDefault(x => x.Id == id);
 
+        }
+        public void AddAircarft(Aircraft aircraft)
+        {
+            Context.Aircraft.Add(aircraft);
+            Context.SaveChanges();
+        }
+        public void EditAircraft(Aircraft aircraft)
+        {
+            Context.Entry(aircraft).State = EntityState.Modified;
+        }
+        public void DeleteAircraft(int id)
+        {
+            Aircraft aircraft = Context.Aircraft.Find(id);
+            if (aircraft != null)
+                Context.Aircraft.Remove(aircraft);
         }
     }
 }
