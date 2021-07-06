@@ -21,12 +21,12 @@ namespace SoftAir.Services
             _mapper = mapper;
         }
 
-        public async Task<List<AircraftListDto>> GetAllAircraftAsync()
+        public List<AircraftListDto> GetAllAircraft()
         {
             var aircraftListDto = new List<AircraftListDto>();
             var aircraft = _aircraftRepository.GetAircraftList();
 
-            foreach(var aircraftItem in aircraft)
+            foreach (var aircraftItem in aircraft)
             {
                 var aircraftDto = new AircraftListDto
                 {
@@ -48,9 +48,9 @@ namespace SoftAir.Services
 
                 return aircraftDto;
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -67,6 +67,11 @@ namespace SoftAir.Services
             if (aircraft == null)
                 throw new ArgumentNullException(nameof(aircraft));
             _aircraftRepository.EditAircraft(aircraft);
+        }
+
+        public void DeleteAircraft(int id)
+        {
+            _aircraftRepository.DeleteAircraft(id);
         }
     }
 }

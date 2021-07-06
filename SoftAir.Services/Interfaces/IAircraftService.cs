@@ -8,9 +8,10 @@ namespace SoftAir.Services.Interfaces
 {
     public interface IAircraftService
     {
-        Task<List<AircraftListDto>> GetAllAircraftAsync();
+        List<AircraftListDto> GetAllAircraft();
         void AddAircarft(Aircraft aircraft);
 
         void UpdateAircraft(Aircraft aircraft);
+        void DeleteAircraft(int id);
     }
 }

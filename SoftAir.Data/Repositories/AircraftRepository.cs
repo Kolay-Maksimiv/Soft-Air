@@ -42,6 +42,7 @@ namespace SoftAir.Data.Repositories
             Aircraft aircraft = Context.Aircraft.Find(id);
             if (aircraft != null)
                 Context.Aircraft.Remove(aircraft);
+            Context.SaveChanges();
         }
     }
 }
