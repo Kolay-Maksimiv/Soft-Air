@@ -24,9 +24,9 @@ namespace SoftAir.Web.Api.Controllers
         [HttpGet("get-aircraft")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
-        public IActionResult GetAircraft()
+        public async Task<IActionResult> GetAircraft()
         {
-            var result = _aircraftService.GetAllAircraft();
+            var result = await _aircraftService.GetAllAircraftAsync();
 
             return Ok(result);
         }
@@ -43,7 +43,7 @@ namespace SoftAir.Web.Api.Controllers
                     Name = model.Name
                 };
 
-                _aircraftService.AddAircarft(aircraft);
+                _aircraftService.AddAircraft(aircraft);
 
                 return Ok("Aircraft add");
             }
@@ -76,11 +76,16 @@ namespace SoftAir.Web.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> DeleteAsync(int id)
         {
             try
             {
-                _aircraftService.DeleteAircraft(id);
+                var aircraft = await _aircraftService.FindAsync(id);
+
+                if (aircraft == null)
+                    return BadRequest();
+
+                _aircraftService.Delete(aircraft);
 
                 return Ok();
             }

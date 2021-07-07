@@ -1,19 +1,16 @@
-using AutoMapper;
 using IdentityServer4.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using SoftAir.Data;
+using SoftAir.Data.Abstract;
+using SoftAir.Data.Domain.Aircraft;
 using SoftAir.Data.Extensions;
-using SoftAir.Data.Repositories;
-using SoftAir.Data.Repositories.Interfaces;
-using SoftAir.Services;
 using SoftAir.Services.Interfaces;
+using SoftAir.Services.Services;
 using System;
 using System.IO;
 using System.Linq;
@@ -51,11 +48,15 @@ namespace SoftAir.Web.Api
             // Add Database Context
             services.AddDatabase(Configuration);
 
-            services.AddScoped<IAircraftRepository, AircraftRepository>();
+            services.AddScoped<IGenericRepository<Aircraft>, GenericRepository<Aircraft>>();
 
             services.AddScoped<IAircraftService, AircraftService>();
 
             services.AddControllers();
+
+            services.AddControllersWithViews()
+                .AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             // Add auto mapper 
             var assemblies = Assembly
