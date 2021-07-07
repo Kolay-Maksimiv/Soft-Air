@@ -15,5 +15,13 @@ export class AircraftService {
   getAircraft() {
     return this.http.get<AircraftModel[]>(HttpClientService.GET_AIRCRAFT_CONTROLLER);
   }
+  
+  createAircraft(data: AircraftModel) {
+    return this.http.post(HttpClientService.CREATE_AIRCRAFT_CONTROLLER, data);
+  }
+
+  updateAircraft(data: AircraftModel) {
+    return this.http.put(HttpClientService.UPDATE_AIRCRAFT_CONTROLLER, data);
+  }
 
 }

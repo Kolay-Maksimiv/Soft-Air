@@ -11,6 +11,7 @@ using SoftAir.Data.Domain.Aircraft;
 using SoftAir.Data.Extensions;
 using SoftAir.Services.Interfaces;
 using SoftAir.Services.Services;
+using SoftAir.Web.Api.StartupExtensions;
 using System;
 using System.IO;
 using System.Linq;
@@ -48,9 +49,8 @@ namespace SoftAir.Web.Api
             // Add Database Context
             services.AddDatabase(Configuration);
 
-            services.AddScoped<IGenericRepository<Aircraft>, GenericRepository<Aircraft>>();
-
-            services.AddScoped<IAircraftService, AircraftService>();
+            services.AddEntityRepositories();
+            services.AddEntityServices();
 
             services.AddControllers();
 
@@ -74,12 +74,11 @@ namespace SoftAir.Web.Api
             }
             catch (ReflectionTypeLoadException ex)
             {
-                StringBuilder sb = new StringBuilder();
+                StringBuilder sb = new();
                 foreach (Exception exSub in ex.LoaderExceptions)
                 {
                     sb.AppendLine(exSub.Message);
-                    FileNotFoundException exFileNotFound = exSub as FileNotFoundException;
-                    if (exFileNotFound != null)
+                    if (exSub is FileNotFoundException exFileNotFound)
                     {
                         if (!string.IsNullOrEmpty(exFileNotFound.FusionLog))
                         {

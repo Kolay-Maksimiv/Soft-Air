@@ -14,4 +14,6 @@ export class HttpClientService {
   public static readonly AIRCRAFT_CONTROLLER = HttpClientService.API + '/Aircraft';
 
   public static readonly GET_AIRCRAFT_CONTROLLER = HttpClientService.AIRCRAFT_CONTROLLER + "/get-aircraft";
+  public static readonly CREATE_AIRCRAFT_CONTROLLER = HttpClientService.AIRCRAFT_CONTROLLER + "/add-aircraft";
+  public static readonly UPDATE_AIRCRAFT_CONTROLLER = HttpClientService.AIRCRAFT_CONTROLLER + "/edit-aircraft";
 }

@@ -1,1 +1,9 @@
-<p>aircraft-management works!</p>
+
+    <div class="form-group">
+        <label>Модель</label>
+        <input type="text" [(ngModel)]="aircraft.name" class="form-control" />
+    </div>
+    <div>
+        <input type="button" value="Сохранить" (click)="createAircraft()" class="btn btn-success" />
+        <input type="button" value="Отмена" (click)="cancel()" class="btn btn-warning" />
+    </div>

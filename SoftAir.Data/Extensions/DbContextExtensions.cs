@@ -21,9 +21,9 @@ namespace SoftAir.Data.Extensions
         #region Fields
 
         private static string _databaseName;
-        private static readonly ConcurrentDictionary<string, string> TableNames = new ConcurrentDictionary<string, string>();
-        private static readonly ConcurrentDictionary<string, IEnumerable<(string, int?)>> ColumnsMaxLength = new ConcurrentDictionary<string, IEnumerable<(string, int?)>>();
-        private static readonly ConcurrentDictionary<string, IEnumerable<(string, decimal?)>> DecimalColumnsMaxValue = new ConcurrentDictionary<string, IEnumerable<(string, decimal?)>>();
+        private static readonly ConcurrentDictionary<string, string> TableNames = new();
+        private static readonly ConcurrentDictionary<string, IEnumerable<(string, int?)>> ColumnsMaxLength = new();
+        private static readonly ConcurrentDictionary<string, IEnumerable<(string, decimal?)>> DecimalColumnsMaxValue = new();
 
         #endregion
 
@@ -53,7 +53,7 @@ namespace SoftAir.Data.Extensions
                 throw new ArgumentNullException(nameof(context));
 
             //try to get the EF database context
-            if (!(context is DbContext dbContext))
+            if (context is not DbContext dbContext)
                 throw new InvalidOperationException("Context does not support operation");
 
             //try to get the entity tracking object
@@ -166,7 +166,7 @@ namespace SoftAir.Data.Extensions
                 throw new ArgumentNullException(nameof(context));
 
             //try to get the EF database context
-            if (!(context is DbContext dbContext))
+            if (context is not DbContext dbContext)
                 throw new InvalidOperationException("Context does not support operation");
 
             var entityTypeFullName = typeof(TEntity).FullName;
@@ -196,7 +196,7 @@ namespace SoftAir.Data.Extensions
                 throw new ArgumentNullException(nameof(context));
 
             //try to get the EF database context
-            if (!(context is DbContext dbContext))
+            if (context is not DbContext dbContext)
                 throw new InvalidOperationException("Context does not support operation");
 
             var entityTypeFullName = typeof(TEntity).FullName;
@@ -228,7 +228,7 @@ namespace SoftAir.Data.Extensions
                 throw new ArgumentNullException(nameof(context));
 
             //try to get the EF database context
-            if (!(context is DbContext dbContext))
+            if (context is not DbContext dbContext)
                 throw new InvalidOperationException("Context does not support operation");
 
             var entityTypeFullName = typeof(TEntity).FullName;
@@ -267,7 +267,7 @@ namespace SoftAir.Data.Extensions
                 throw new ArgumentNullException(nameof(context));
 
             //try to get the EF database context
-            if (!(context is DbContext dbContext))
+            if (context is not DbContext dbContext)
                 throw new InvalidOperationException("Context does not support operation");
 
             if (!string.IsNullOrEmpty(_databaseName))
